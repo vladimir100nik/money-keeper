@@ -1,22 +1,22 @@
 let startBtn = document.getElementById("start"),
-	budgetValue = document.getElementsByClassName('budget-value')[0],
-	dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
-	levelValue = document.getElementsByClassName('level-value')[0],
-	expensesValue = document.getElementsByClassName('expenses-value')[0],
-	optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],
-	incomeValue = document.getElementsByClassName('income-value')[0],
+    budgetValue = document.getElementsByClassName('budget-value')[0],
+    dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
+    levelValue = document.getElementsByClassName('level-value')[0],
+    expensesValue = document.getElementsByClassName('expenses-value')[0],
+    optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],
+    incomeValue = document.getElementsByClassName('income-value')[0],
     monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
     yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
 
 
-	expensesItem = document.getElementsByClassName('expenses-item'),
-	expensesBtn = document.getElementsByTagName('button')[0],
-	optionalExpensesBtn = document.getElementsByTagName('button')[1],
+    expensesItem = document.getElementsByClassName('expenses-item'),
+    expensesBtn = document.getElementsByTagName('button')[0],
+    optionalExpensesBtn = document.getElementsByTagName('button')[1],
     countBtn = document.getElementsByTagName('button')[2],
     optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
-	incomeItem = document.querySelector('.choose-income'),
-	checkSavings = document.querySelector('#savings'),
-	sumValue = document.querySelector('.choose-sum'),
+    incomeItem = document.querySelector('.choose-income'),
+    checkSavings = document.querySelector('#savings'),
+    sumValue = document.querySelector('.choose-sum'),
     percentValue = document.querySelector('.choose-percent'),
     yearValue = document.querySelector('.year-value'),
     monthValue = document.querySelector('.month-value'),
@@ -65,10 +65,10 @@ expensesBtn.addEventListener('click', () => {
 
 optionalExpensesBtn.addEventListener('click', () => {
     for (let i = 0; i < optionalExpensesItem.length; i++) {
-		let opt = optionalExpensesItem[i].value;
+        let opt = optionalExpensesItem[i].value;
         appData.optionalExpenses[i] = opt;
         optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
-	}
+    }
 });
 
 countBtn.addEventListener('click', () => {
@@ -95,7 +95,7 @@ incomeItem.addEventListener('input', () => {
     if (isNaN(items) || items != '') {
         appData.income = items.split(',');
         incomeValue.textContent = appData.income;
-    } 
+    }
 });
 
 checkSavings.addEventListener("click", () => {
@@ -110,8 +110,8 @@ sumValue.addEventListener('input', () => {
     if (appData.savings == true) {
         let sum = +sumValue.value;
         let percent = +percentValue.value;
-        appData.monthIncome = sum/100/12*percent;
-        appData.yearIncome = sum/100*percent;
+        appData.monthIncome = sum / 100 / 12 * percent;
+        appData.yearIncome = sum / 100 * percent;
         monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
         yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
     }
@@ -121,18 +121,18 @@ percentValue.addEventListener('input', () => {
     if (appData.savings == true) {
         let sum = +sumValue.value;
         let percent = +percentValue.value;
-        appData.monthIncome = sum/100/12*percent;
-        appData.yearIncome = sum/100*percent;
+        appData.monthIncome = sum / 100 / 12 * percent;
+        appData.yearIncome = sum / 100 * percent;
         monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
         yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
     }
 });
 
 const appData = {
-	budget: money,
-	expenses: {},
-	optionalExpenses: {},
+    budget: money,
+    expenses: {},
+    optionalExpenses: {},
     income: [],
-	timeData: time,
+    timeData: time,
     savings: false
 };
